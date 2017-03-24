@@ -38,4 +38,10 @@ angular.module('hello', [ 'ngRoute' ]) // ... omitted code
                     }
                 });
             };
+            self.logout = function() {
+                $http.post('logout', {}).finally(function() {
+                    $rootScope.authenticated = false;
+                    $location.path("/");
+                });
+            }
         });
